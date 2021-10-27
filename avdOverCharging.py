@@ -113,10 +113,11 @@ if __name__ == "__main__":
     while (cnt<3) and (not plugged) and (percent < BAT_LCL):
       body = { "commands": [{"code":"switch_1", "value": True}] }
       res = get_token()
-      print('token response: {}'.format(res))
+      # print('token response: {}'.format(res))
       res = POST(res, {}, body)
-      print('CMD response: {}'.format(res))
+      # print('CMD response: {}'.format(res))
       logging.info('Power_ON - 电量：'+str(percent)+' %')
+      logging.info('CMD response: {}'.format(res))
 
       cnt += 1
       time.sleep(3)
@@ -132,10 +133,11 @@ if __name__ == "__main__":
     while (cnt<3) and plugged and (percent > BAT_UCL):
       body = { "commands": [{"code":"switch_1", "value": False}] }
       res = get_token()
-      print('token response: {}'.format(res))
+      # print('token response: {}'.format(res))
       res = POST(res, {}, body)
-      print('CMD response: {}'.format(res))
+      # print('CMD response: {}'.format(res))
       logging.info('Power_OFF - 电量：'+str(percent)+' %')
+      logging.info('CMD response: {}'.format(res))
 
       cnt += 1
       time.sleep(3)
